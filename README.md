@@ -26,4 +26,24 @@ It provides a simple, browser-based interface where teachers or class representa
 
 ## Install XAMPP
 
-Visit [XAMPP](https://www.apachefriends.org/)
+Visit [XAMPP](https://www.apachefriends.org/) and follow the installation.
+
+```bash
+cd ~/Downloads
+chmod +x xampp-linux-x64-*.run
+sudo ./xampp-linux-x64-*.run
+```
+
+### Start Apache and MySQL
+
+```bash
+sudo /opt/lampp/lampp start
+```
+
+Clone this repository inside **/opt/lampp/htdocs**
+
+```bash
+cd /opt/lampp/htdocs
+git clone https://github.com/Wacky-sama/AttendEase.git
+sudo chown -R $USER:$USER AttendEase
+```
