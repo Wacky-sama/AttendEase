@@ -23,3 +23,7 @@ It provides a simple, browser-based interface where teachers or class representa
 - **Database**: MySQL
 - **Server**: Apache (via XAMPP / LAMPP)
 - **OS**: Linux Mint
+
+## Install XAMPP
+
+Visit [XAMPP](https://www.apachefriends.org/)
