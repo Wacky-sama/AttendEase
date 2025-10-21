@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AttendEase - Attendance System</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AttendEase</h1>
+      <p>A Simple Web-Based Attendance Tally System</p>
+    </header>
 
+    <main>
+      <section class="form-section">
+        <h2>Record Attendance</h2>
+        <form id="attendanceForm">
+          <label for="studentName">Student Name:</label>
+          <input type="text" id="studentName" name="studentName" required />
+
+          <label for="studentId">Student ID:</label>
+          <input type="text" id="studentId" name="studentId" required />
+
+          <label for="status">Status:</label>
+          <select id="status" name="status" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Late">Late</option>
+          </select>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <section class="table-section">
+        <h2>Attendance Records</h2>
+        <table id="attendanceTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Student Name</th>
+              <th>Student ID</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Data will be loaded here using JS -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 AttendEase | Created for School Project</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
