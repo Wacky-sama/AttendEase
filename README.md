@@ -18,9 +18,8 @@ It provides a simple, browser-based interface where teachers or class representa
 
 ## Tech Stack
 
-**Frontend** | HTML5, CSS3, JavaScript
-**Backend** | PHP 
-**Database** | MySQL
-**Server** | Apache (via XAMPP / LAMPP)
-**OS** | Linux Mint
-
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: PHP
+- **Database**: MySQL
+- **Server**: Apache (via XAMPP / LAMPP)
+- **OS**: Linux Mint
