@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - AttendEase</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Student Registration</h2>
+      <form id="registerForm">
+        <input type="text" name="username" placeholder="Username" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="text"
+          name="student_id"
+          placeholder="Student ID"
+          required
+        />
+        <input
+          type="text"
+          name="first_name"
+          placeholder="First Name"
+          required
+        />
+        <input type="text" name="middle_initial" placeholder="Middle Initial" />
+        <input type="text" name="last_name" placeholder="Last Name" required />
+
+        <select name="course" required>
+          <option value="">Select Course</option>
+          <option>BACHELOR OF SCIENCE IN AGRICULTURE</option>
+          <option>BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM</option>
+          <option>BACHELOR OF SCIENCE IN CRIMINOLOGY</option>
+          <option>BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT</option>
+          <option>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</option>
+          <option>BACHELOR OF ELEMENTARY EDUCATION</option>
+          <option>BACHELOR OF SECONDARY EDUCATION</option>
+        </select>
+
+        <input
+          type="number"
+          name="year_level"
+          placeholder="Year Level (1-4)"
+          required
+        />
+        <input type="text" name="section" placeholder="Section" required />
+        <button type="submit">Register</button>
+        <p>Already registered? <a href="login.html">Login</a></p>
+      </form>
+    </div>
+
+    <script src="js/register.js"></script>
+  </body>
+</html>

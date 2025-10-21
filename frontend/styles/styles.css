@@ -84,3 +84,28 @@ footer {
   color: white;
   margin-top: 30px;
 }
+
+header {
+  background-color: #004aad;
+  color: white;
+  padding: 1.5rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header-content h1 {
+  margin: 0;
+}
+
+.header-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
