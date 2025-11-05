@@ -5,16 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadStudentSummaries() {
     document.getElementById("loading").style.display = "block";
     try {
-      // Fetch students
       const studentsResponse = await fetch("../backend/api/fetch_students.php");
       const students = await studentsResponse.json();
 
-      // Fetch all attendance records
       const attendanceResponse = await fetch("../backend/api/admin_view_attendance.php");
       const attendanceResult = await attendanceResponse.json();
       const records = attendanceResult.data || [];
 
-      // Aggregate data per student
       const summaries = {};
       students.forEach(student => {
         summaries[student.student_id] = {
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Render table
       tableBody.innerHTML = "";
       Object.values(summaries).forEach(summary => {
         const row = document.createElement("tr");
@@ -53,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         tableBody.appendChild(row);
       });
 
-      // Search functionality
       searchInput.addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase();
         const rows = document.querySelectorAll("#studentsTable tbody tr");
