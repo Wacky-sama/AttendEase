@@ -12,13 +12,19 @@ usernameInput.addEventListener("input", () => {
 });
 
 function capitalizeName(input) {
-  const words = input.value
+  input.value = input.value
     .toLowerCase()
     .split(" ")
     .filter(Boolean)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
-  input.value = words.join(" ");
+    .map((word) => {
+      if (word.startsWith('"') && word.length > 1) {
+        return '"' + word.charAt(1).toUpperCase() + word.slice(2);
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
 }
+
 
 firstNameInput.addEventListener("input", () => capitalizeName(firstNameInput));
 lastNameInput.addEventListener("input", () => capitalizeName(lastNameInput));
@@ -52,10 +58,7 @@ middleInitialInput.addEventListener("paste", (e) => {
 
 middleInitialInput.addEventListener("input", () => {
   let value = middleInitialInput.value.replace(/[^a-zA-Z]/g, "");
-
-  if (value.length > 1) {
-    value = value.charAt(0);
-  }
+  if (value.length > 1) value = value.charAt(0);
   middleInitialInput.value = value.toUpperCase();
 });
 

@@ -15,6 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $section = trim($_POST['section'] ?? '');
     $role = 'student';
 
+    $first_name = preg_replace_callback('/\b\w+/u', fn($m) => ucfirst(strtolower($m[0])), $first_name);
+    $last_name = preg_replace_callback('/\b\w+/u', fn($m) => ucfirst(strtolower($m[0])), $last_name);
+    $middle_initial = strtoupper($middle_initial);
+
     if (empty($first_name) || empty($last_name) || empty($username) || empty($password)) {
         echo json_encode(['success' => false, 'message' => 'Missing required fields']);
         exit;
