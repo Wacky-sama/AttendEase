@@ -12,15 +12,15 @@ if (!$student_id) {
 
 $stmt = $conn->prepare("
     SELECT 
-        a.id, 
-        a.student_id, 
-        CONCAT(u.first_name, ' ', u.last_name) AS full_name, 
-        a.date, 
-        a.status 
-    FROM attendance a
-    JOIN users u ON a.student_id = u.student_id
-    WHERE a.student_id = ?
-    ORDER BY a.date DESC
+        att.id, 
+        att.student_id, 
+        CONCAT(usr.first_name, ' ', usr.last_name) AS full_name, 
+        att.date, 
+        att.status 
+    FROM attendance att
+    JOIN users usr ON att.student_id = usr.student_id
+    WHERE att.student_id = ?
+    ORDER BY att.date DESC
 ");
 $stmt->bind_param("s", $student_id);
 $stmt->execute();

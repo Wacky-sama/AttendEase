@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 require_once '../config/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $student_id = $_POST['student_id'] ?? null; // varchar(8)
+    $student_id = $_POST['student_id'] ?? null;
     $status = $_POST['status'] ?? null;
     $date = date('Y-m-d');
 
@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Prevent duplicate entries for the same student and date
     $check = $conn->prepare("SELECT id FROM attendance WHERE student_id = ? AND date = ?");
     $check->bind_param("ss", $student_id, $date);
     $check->execute();
@@ -29,7 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $check->close();
 
-    $query = "INSERT INTO attendance (student_id, date, status) VALUES (?, ?, ?)";
+    $query = "INSERT INTO attendance (
+              student_id,
+              date, 
+              status
+    ) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("sss", $student_id, $date, $status);
 

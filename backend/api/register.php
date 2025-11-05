@@ -26,10 +26,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (role, student_id, first_name, last_name, middle_initial, username, password, course, year_level, section)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO users (
+            role, 
+            student_id, 
+            first_name, 
+            last_name, 
+            middle_initial, 
+            username, 
+            password, 
+            course, 
+            year_level, 
+            section
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssss", $role, $student_id, $first_name, $last_name, $middle_initial, $username, $hashed_password, $course, $year_level, $section);
+
+    $stmt->bind_param(
+        "ssssssssss", 
+        $role, 
+        $student_id, 
+        $first_name, 
+        $last_name, 
+        $middle_initial, 
+        $username, 
+        $hashed_password, 
+        $course, 
+        $year_level, 
+        $section
+    );
 
     if ($stmt->execute()) {
         echo json_encode(['success' => true, 'message' => 'Registration successful!']);
