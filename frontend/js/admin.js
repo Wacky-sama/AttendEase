@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
         tableBody.appendChild(row);
       });
+
+      updateTally();
     } catch (error) {
       console.error("Error loading attendance:", error);
     }
@@ -63,10 +65,46 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       form.reset();
-      loadAttendance();
+      await loadAttendance();
+      updateTally();
     } catch (error) {
       console.error("Error submitting attendance:", error);
       alert("Failed to submit attendance.");
+    }
+  });
+
+  function updateTally() {
+    const rows = document.querySelectorAll("#attendanceTable tbody tr");
+    let present = 0,
+      absent = 0,
+      late = 0;
+
+    rows.forEach((row) => {
+      const status = row.cells[6].textContent.trim();
+      if (status === "Present") present++;
+      else if (status === "Absent") absent++;
+      else if (status === "Late") late++;
+    });
+
+    document.getElementById("presentCount").textContent = present;
+    document.getElementById("absentCount").textContent = absent;
+    document.getElementById("lateCount").textContent = late;
+  }
+
+  document.getElementById("logoutBtn").addEventListener("click", async () => {
+    if (confirm("Are you sure you want to log out?")) {
+      const response = await fetch("../backend/api/logout.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        alert(result.message);
+        window.location.href = "login.html";
+      } else {
+        alert("Logout failed. Please try again.");
+      }
     }
   });
 

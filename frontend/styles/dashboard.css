@@ -154,3 +154,7 @@ form button[type="submit"]:hover {
   background: var(--accent);
   box-shadow: 0 4px 12px rgba(0, 115, 255, 0.3);
 }
+
+.summary span:nth-child(1) strong { color: #0a0; } /* Present */
+.summary span:nth-child(2) strong { color: #c00; } /* Absent */
+.summary span:nth-child(3) strong { color: #e69500; } /* Late */

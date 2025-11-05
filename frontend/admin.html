@@ -38,6 +38,15 @@
         </form>
       </section>
 
+      <section class="summary-section">
+        <h2>Attendance Summary</h2>
+        <div class="summary">
+          <span>Present: <strong id="presentCount"></strong></span>
+          <span>Absent: <strong id="absentCount"></strong></span>
+          <span>Late: <strong id="lateCount"></strong></span>
+        </div>
+      </section>
+
       <section class="table-section">
         <h2>Attendance Records</h2>
         <table id="attendanceTable">
@@ -52,36 +61,14 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-          </tbody>
+          <tbody></tbody>
         </table>
       </section>
     </main>
-
     <footer>
       <p>© 2025 AttendEase | Created for School Project</p>
     </footer>
 
     <script src="js/admin.js"></script>
-    <script>
-      document
-        .getElementById("logoutBtn")
-        .addEventListener("click", async () => {
-          if (confirm("Are you sure you want to log out?")) {
-            const response = await fetch("../backend/api/logout.php", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-            });
-            const result = await response.json();
-
-            if (result.success) {
-              alert(result.message);
-              window.location.href = "login.html";
-            } else {
-              alert("Logout failed. Please try again.");
-            }
-          }
-        });
-    </script>
   </body>
 </html>
