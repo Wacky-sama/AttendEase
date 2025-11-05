@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const studentName = localStorage.getItem("studentName");
   const attendanceHistory = document.getElementById("attendanceHistory");
   const studentNameEl = document.getElementById("studentName");
+  const attendanceRateEl = document.getElementById("attendanceRate");
+  const absencesEl = document.getElementById("absences");
 
   console.log("Student ID:", studentId);
 
@@ -18,7 +20,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     const result = await response.json();
 
     if (result.success && result.data.length > 0) {
-      attendanceHistory.innerHTML = result.data
+      const records = result.data;
+
+      // Calculate stats
+      const total = records.length;
+      const presentCount = records.filter(r => r.status === "Present").length;
+      const absentCount = records.filter(r => r.status === "Absent").length;
+      const attendanceRate = ((presentCount / total) * 100).toFixed(1);
+
+      // Display stats
+      attendanceRateEl.textContent = `${attendanceRate}%`;
+      absencesEl.textContent = absentCount;
+
+      // Populate table
+      attendanceHistory.innerHTML = records
         .map(
           (record) => `
           <tr>
@@ -36,11 +51,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         )
         .join("");
     } else {
+      attendanceRateEl.textContent = "0%";
+      absencesEl.textContent = "0";
       attendanceHistory.innerHTML = `
         <tr><td colspan="3" class="text-center text-muted">No attendance records found.</td></tr>`;
     }
   } catch (error) {
     console.error("Error fetching attendance:", error);
+    attendanceRateEl.textContent = "N/A";
+    absencesEl.textContent = "N/A";
     attendanceHistory.innerHTML = `
       <tr><td colspan="3" class="text-center text-danger">Failed to load data.</td></tr>`;
   }
