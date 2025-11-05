@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const students = await response.json();
 
       studentSelect.innerHTML = '<option value="">Select Student</option>';
-      students.forEach((s) => {
+      students.forEach((student) => {
         const option = document.createElement("option");
-        option.value = s.student_id;
-        option.textContent = `${s.name} (${s.student_id})`;
+        option.value = student.student_id;
+        option.textContent = `${student.name} (${student.student_id})`;
         studentSelect.appendChild(option);
       });
     } catch (error) {
@@ -27,13 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const records = result.data || [];
 
       tableBody.innerHTML = "";
-      records.forEach((r) => {
+      records.forEach((record) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-        <td>${r.student_id}</td>
-        <td>${r.full_name}</td>
-        <td>${r.date}</td>
-        <td>${r.status}</td>
+        <td>${record.student_id}</td>
+        <td>${record.full_name}</td>
+        <td>${record.course}</td>
+        <td>${record.year_level}</td>
+        <td>${record.section}</td>
+        <td>${record.date}</td>
+        <td>${record.status}</td>
       `;
         tableBody.appendChild(row);
       });

@@ -7,6 +7,9 @@ $sql = "
         a.id, 
         a.student_id, 
         CONCAT(u.first_name, ' ', u.last_name) AS full_name, 
+        u.course,
+        u.year_level,
+        u.section,
         a.date, 
         a.status 
     FROM attendance a
