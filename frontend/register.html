@@ -11,37 +11,74 @@
     <div class="register-container">
       <div class="register-card">
         <h2>Student Registration</h2>
-        <p class="subtitle">Join AttendEase and track your attendance easily.</p>
+        <p class="subtitle">
+          Join AttendEase and track your attendance easily.
+        </p>
         <form id="registerForm">
           <div class="form-group">
-            <input type="text" name="username" placeholder="Username" required />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              required
+            />
           </div>
 
           <div class="form-group">
-            <input type="password" name="password" placeholder="Password" required />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
           </div>
 
           <div class="form-group">
-            <input type="text" name="student_id" placeholder="Student ID" required />
+            <input
+              type="text"
+              name="student_id"
+              placeholder="Student ID"
+              required
+            />
           </div>
 
           <div class="form-group">
-            <input type="text" name="first_name" placeholder="First Name" required />
+            <input
+              type="text"
+              name="first_name"
+              placeholder="First Name"
+              required
+            />
           </div>
 
           <div class="form-group">
-            <input type="text" name="middle_initial" placeholder="Middle Initial" />
+            <input
+              type="text"
+              name="middle_initial"
+              placeholder="Middle Initial"
+              maxlength="1"
+              pattern="[A-Za-z]"
+              title="Only one letter is allowed"
+              inputmode="text"
+            />
           </div>
 
           <div class="form-group">
-            <input type="text" name="last_name" placeholder="Last Name" required />
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Last Name"
+              required
+            />
           </div>
 
           <div class="form-group">
             <select name="course" required>
               <option value="">Select Course</option>
               <option>BACHELOR OF SCIENCE IN AGRICULTURE</option>
-              <option>BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM</option>
+              <option>
+                BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM
+              </option>
               <option>BACHELOR OF SCIENCE IN CRIMINOLOGY</option>
               <option>BACHELOR OF SCIENCE IN HOSPITALITY MANAGEMENT</option>
               <option>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</option>
@@ -60,7 +97,7 @@
             </select>
           </div>
 
-           <div class="form-group">
+          <div class="form-group">
             <select name="section" required>
               <option value="">Select Section</option>
               <option>A</option>
