@@ -30,12 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
       records.forEach((r) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-    <td>${r.id}</td>
-    <td>${r.full_name}</td>
-    <td>${r.student_id}</td>
-    <td>${r.date}</td>
-    <td>${r.status}</td>
-  `;
+        <td>${r.student_id}</td>
+        <td>${r.full_name}</td>
+        <td>${r.date}</td>
+        <td>${r.status}</td>
+      `;
         tableBody.appendChild(row);
       });
     } catch (error) {
