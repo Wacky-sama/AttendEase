@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function loadAttendance() {
     try {
-      const response = await fetch("../backend/api/view_attendance.php");
+      const response = await fetch("../backend/api/admin_view_attendance.php");
       const result = await response.json();
       const records = result.data || [];
 
