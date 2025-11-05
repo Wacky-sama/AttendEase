@@ -169,17 +169,17 @@ form button[type="submit"]:hover {
 .navbar {
   background: var(--primary);
   color: white;
-  padding: 1rem 0;
+  padding: 1rem 2rem;  /* Add horizontal padding (2rem) for space from edges */
   position: relative;
-}
-
-.navbar {
-  max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;  /* Span full width */
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;  /* Better spacing: brand left, nav center, actions right */
   flex-wrap: wrap;
+}
+
+.navbar-brand {
+  flex-shrink: 0;  /* Keeps brand on left */
 }
 
 .navbar-brand .brand-link {
@@ -197,6 +197,15 @@ form button[type="submit"]:hover {
   font-size: 0.9rem;
   opacity: 0.9;
   margin: 0;
+}
+
+.navbar-center {
+  flex: 1;  /* Takes up available space */
+  display: flex;
+  justify-content: center;  /* Centers nav links perfectly */
+  position: absolute;  /* Position absolutely for true centering */
+  left: 50%;
+  transform: translateX(-50%);  /* Shifts center point to middle of navbar */
 }
 
 .navbar-nav {
@@ -229,6 +238,7 @@ form button[type="submit"]:hover {
 }
 
 .navbar-actions {
+  flex-shrink: 0;  /* Keeps actions on right */
   display: flex;
   align-items: center;
 }
@@ -257,13 +267,22 @@ form button[type="submit"]:hover {
   .navbar {
     flex-direction: column;
     text-align: center;
+    padding: 1rem;  /* Reduce padding on mobile */
+  }
+  .navbar-brand {
+    margin-bottom: 1rem;
+  }
+  .navbar-center {
+    position: static;  /* Reset for stacking */
+    transform: none;
+    order: 2;
+    margin: 1rem 0;
+  }
+  .navbar-actions {
+    order: 3;
   }
   .navbar-nav {
     flex-direction: column;
     gap: 1rem;
-    margin: 1rem 0;
-  }
-  .navbar-actions {
-    margin-top: 1rem;
   }
 }
