@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once '../config/db_connect.php';
 
-// Fetch only students
 $query = "
     SELECT 
         id, 
