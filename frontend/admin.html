@@ -4,14 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AttendEase - Attendance System</title>
-    <link 
-      rel="stylesheet" 
-      href="styles/admin-dashboard.css" 
-    />
-    <link 
-      rel="stylesheet" 
-      href="styles/table.css" 
-    />
+    <link rel="stylesheet" href="styles/admin-dashboard.css" />
+    <link rel="stylesheet" href="styles/table.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -19,56 +13,60 @@
   </head>
   <body>
     <header>
-      <div class="header-content">
-        <div>
-          <h1>AttendEase</h1>
-          <p>A Simple Web-Based Attendance Tally System</p>
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a href="admin.html" class="brand-link">
+            <h1>AttendEase</h1>
+            <p>A Simple Web-Based Attendance Tally System</p>
+          </a>
         </div>
-        <button id="logoutBtn" class="logout-btn">
-          <i class="fas fa-sign-out-alt"></i> 
+        <ul class="navbar-nav">
+          <li>
+            <a href="admin.html" class="nav-link active"><i class="fas fa-tachometer-alt"></i> 
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="view-students.html" class="nav-link"><i class="fas fa-users"></i> 
+              View Students
+            </a>
+          </li>
+        </ul>
+        <div class="navbar-actions">
+          <button id="logoutBtn" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> 
             Logout
-        </button>
-      </div>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <main>
       <section class="form-section">
-        <h2><i class="fas fa-user-check"></i> 
+        <h2>
+          <i class="fas fa-user-check"></i>
           Record Attendance
         </h2>
         <form id="attendanceForm">
-          <label for="student_id">
-            Student:
-          </label>
+          <label for="student_id"> Student: </label>
           <select id="student_id" name="student_id" required>
-            <option value="">
-              Select Student
-            </option>
+            <option value="">Select Student</option>
           </select>
 
-          <label for="status">
-            Status:
-          </label>
+          <label for="status"> Status: </label>
           <select id="status" name="status" required>
-            <option value="Present">
-              Present
-            </option>
-            <option value="Absent">
-              Absent
-            </option>
-            <option value="Late">
-              Late
-            </option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Late">Late</option>
           </select>
 
-          <button type="submit">
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </form>
       </section>
 
       <section class="summary-section">
-        <h2><i class="fas fa-chart-bar"></i> 
+        <h2>
+          <i class="fas fa-chart-bar"></i>
           Attendance Summary
         </h2>
         <div class="summary-cards">
@@ -88,17 +86,26 @@
       </section>
 
       <section class="table-section">
-        <h2><i class="fas fa-table"></i>
-           Attendance Records
+        <h2>
+          <i class="fas fa-table"></i>
+          Attendance Records
         </h2>
-        <input 
-          type="text" 
-          id="searchInput" 
-          placeholder="Search by name or status..." 
-          style="width: 100%; padding: 8px; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px;"
-        >
-        <button id="exportBtn"><i class="fas fa-download"></i> Export to CSV</button>
-        <div id="loading" style="display: none;">Loading...</div>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by name or status..."
+          style="
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+          "
+        />
+        <button id="exportBtn">
+          <i class="fas fa-download"></i> Export to CSV
+        </button>
+        <div id="loading" style="display: none">Loading...</div>
         <table id="attendanceTable">
           <thead>
             <tr>
@@ -115,11 +122,9 @@
         </table>
       </section>
     </main>
-    
+
     <footer>
-      <p>
-        © 2025 AttendEase | Created for School Project
-      </p>
+      <p>© 2025 AttendEase | Created for School Project</p>
     </footer>
 
     <script src="js/admin.js"></script>
