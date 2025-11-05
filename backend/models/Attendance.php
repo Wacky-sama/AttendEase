@@ -1,24 +1,23 @@
 <?php
-class Attendance
-{
+class Attendance {
     private $conn;
     private $table = "attendance";
 
-    public function __construct($db)
-    {
+    public function __construct($db) {
         $this->conn = $db;
     }
 
-    public function save($student_name, $student_id, $status)
-    {
+    public function save($student_id, $status) {
         $date = date('Y-m-d');
-        $stmt = $this->conn->prepare("INSERT INTO $this->table (student_name, student_id, date, status) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $student_name, $student_id, $date, $status);
+        $stmt = $this->conn->prepare("
+            INSERT INTO $this->table (student_id, date, status) 
+            VALUES (?, ?, ?)
+        ");
+        $stmt->bind_param("sss", $student_id, $date, $status);
         return $stmt->execute();
     }
 
-    public function getAll()
-    {
+    public function getAll() {
         $sql = "SELECT * FROM $this->table ORDER BY id DESC";
         $result = $this->conn->query($sql);
         $records = [];
@@ -28,9 +27,13 @@ class Attendance
         return $records;
     }
 
-    public function getByStudent($student_id)
-    {
-        $stmt = $this->conn->prepare("SELECT date, student_name, status FROM $this->table WHERE student_id = ? ORDER BY date DESC");
+    public function getByStudent($student_id) {
+        $stmt = $this->conn->prepare("
+            SELECT date, status 
+            FROM $this->table 
+            WHERE student_id = ? 
+            ORDER BY date DESC
+        ");
         $stmt->bind_param("s", $student_id);
         $stmt->execute();
         $result = $stmt->get_result();
