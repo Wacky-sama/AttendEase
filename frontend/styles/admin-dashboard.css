@@ -110,7 +110,7 @@ select {
   color: #333;
   font-size: 1rem;
   font-weight: 500;
-  appearance: none; /* Remove default arrow */
+  appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, var(--primary) 50%),
                     linear-gradient(135deg, var(--primary) 50%, transparent 50%);
   background-position: calc(100% - 20px) calc(1em + 4px), calc(100% - 15px) calc(1em + 4px);
@@ -119,14 +119,12 @@ select {
   transition: all 0.3s ease;
 }
 
-/* When hovering or focusing */
 select:hover, select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 8px rgba(0, 115, 255, 0.2);
   outline: none;
 }
 
-/* Make the dropdown label feel consistent */
 label {
   display: block;
   font-weight: 600;
@@ -135,7 +133,6 @@ label {
   margin-top: 10px;
 }
 
-/* Style the submit button to match */
 form button[type="submit"] {
   width: 100%;
   margin-top: 1rem;
@@ -155,6 +152,6 @@ form button[type="submit"]:hover {
   box-shadow: 0 4px 12px rgba(0, 115, 255, 0.3);
 }
 
-.summary span:nth-child(1) strong { color: #0a0; } /* Present */
-.summary span:nth-child(2) strong { color: #c00; } /* Absent */
-.summary span:nth-child(3) strong { color: #e69500; } /* Late */
+.summary span:nth-child(1) strong { color: #0a0; } 
+.summary span:nth-child(2) strong { color: #c00; } 
+.summary span:nth-child(3) strong { color: #e69500; }
