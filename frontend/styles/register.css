@@ -1,5 +1,13 @@
 @import url("global.css");
 
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #004aad, #0073ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .register-container {
   width: 100%;
   display: flex;
@@ -59,7 +67,6 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(0, 115, 255, 0.1);
 }
 
-/* Button */
 button {
   width: 100%;
   background: var(--primary);
@@ -79,7 +86,6 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 115, 255, 0.3);
 }
 
-/* Link below */
 .login-text {
   margin-top: 1.2rem;
   font-size: 0.9rem;
@@ -96,7 +102,6 @@ button:hover {
   text-decoration: underline;
 }
 
-/* Subtle gradient glow border effect */
 .register-card::before {
   content: "";
   position: absolute;
@@ -113,7 +118,6 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     transform: translateY(-15px);
@@ -131,7 +135,6 @@ button:hover {
   100% { opacity: 0.6; }
 }
 
-/* Responsive */
 @media (max-width: 480px) {
   .register-card {
     width: 100%;
