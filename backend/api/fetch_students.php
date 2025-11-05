@@ -7,7 +7,7 @@ $query = "
     SELECT 
         id, 
         student_id, 
-        CONCAT(last_name, ', ', first_name, ' ', COALESCE(middle_initial, '')) AS name,
+        CONCAT(last_name, ', ', first_name, ' ', COALESCE(middle_initial, '')) AS full_name,
         course,
         year_level,
         section

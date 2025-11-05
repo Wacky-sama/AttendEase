@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       students.forEach((student) => {
         const option = document.createElement("option");
         option.value = student.student_id;
-        option.textContent = `${student.name} (${student.student_id})`;
+        option.textContent = `${student.full_name} - ${student.course} - ${student.year_level}-${student.section}`;
         studentSelect.appendChild(option);
       });
     } catch (error) {
