@@ -100,7 +100,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Better dropdown look */
 select {
   width: 100%;
   padding: 12px 14px;
@@ -152,6 +151,37 @@ form button[type="submit"]:hover {
   box-shadow: 0 4px 12px rgba(0, 115, 255, 0.3);
 }
 
-.summary span:nth-child(1) strong { color: #0a0; } 
-.summary span:nth-child(2) strong { color: #c00; } 
-.summary span:nth-child(3) strong { color: #e69500; }
+.summary-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.summary-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  transition: transform 0.3s ease;
+}
+.summary-card:hover { transform: translateY(-2px); }
+.summary-card.present { border-left: 4px solid #0a0; }
+.summary-card.absent { border-left: 4px solid #c00; }
+.summary-card.late { border-left: 4px solid #e69500; }
+.summary-card i { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.summary-card.present i { color: #0a0; }
+.summary-card.absent i { color: #c00; }
+.summary-card.late i { color: #e69500; }
+
+@media (max-width: 768px) {
+  .header-content { flex-direction: column; text-align: center; }
+  .logout-btn { position: static; margin-top: 1rem; }
+  .summary-cards { flex-direction: column; }
+  main { padding: 0.5rem; }
+  .form-section, .table-section { padding: 1rem; }
+  table { font-size: 0.9rem; }
+  table th, table td { padding: 8px; }
+}

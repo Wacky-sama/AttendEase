@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function loadAttendance() {
+    document.getElementById("loading").style.display = "block";
     try {
       const response = await fetch("../backend/api/admin_view_attendance.php");
       const result = await response.json();
@@ -44,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
       updateTally();
     } catch (error) {
       console.error("Error loading attendance:", error);
+    } finally {
+      document.getElementById("loading").style.display = "none";
     }
   }
 
@@ -91,6 +94,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("lateCount").textContent = late;
   }
 
+  document.getElementById("searchInput").addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase();
+    const rows = document.querySelectorAll("#attendanceTable tbody tr");
+    rows.forEach((row) => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(query) ? "" : "none";
+    });
+  });
+
   document.getElementById("logoutBtn").addEventListener("click", async () => {
     if (confirm("Are you sure you want to log out?")) {
       const response = await fetch("../backend/api/logout.php", {
@@ -106,6 +118,24 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Logout failed. Please try again.");
       }
     }
+  });
+
+  document.getElementById("exportBtn").addEventListener("click", () => {
+    const table = document.getElementById("attendanceTable");
+    let csv = [];
+    for (let row of table.rows) {
+      let rowData = [];
+      for (let cell of row.cells) {
+        rowData.push(cell.textContent);
+      }
+      csv.push(rowData.join(","));
+    }
+    const blob = new Blob([csv.join("\n")], { type: "text/csv" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "attendance_records.csv";
+    a.click();
   });
 
   loadStudents();
