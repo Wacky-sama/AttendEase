@@ -4,21 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - AttendEase</title>
-  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/styles.css?v=2" />
 </head>
 <body>
-  <div class="form-container">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label>Username</label>
-      <input type="text" name="username" required />
+  <div class="login-container">
+    <div class="login-card">
+      <h1 class="app-title">AttendEase</h1>
+      <h2>Login</h2>
+      <p class="subtitle">Sign in to access your dashboard</p>
 
-      <label>Password</label>
-      <input type="password" name="password" required />
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" name="username" placeholder="Enter your username" required />
+        </div>
 
-      <button type="submit">Login</button>
-      <p>Don’t have an account? <a href="register.html">Register here</a></p>
-    </form>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit">Login</button>
+
+        <p class="register-text">
+          Don’t have an account? <a href="register.html">Register here</a>
+        </p>
+      </form>
+    </div>
   </div>
 
   <script src="js/login.js"></script>
