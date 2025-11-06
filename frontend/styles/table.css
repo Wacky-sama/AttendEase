@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table th {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+table tr:hover {
+  background-color: rgba(0, 74, 173, 0.05);
+}

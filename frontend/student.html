@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard | AttendEase</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/student-dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div>
+          <h1>AttendEase</h1>
+          <p>Student Dashboard</p>
+        </div>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="form-section">
+        <h2>Welcome, <span id="studentName">Student</span>!</h2>
+
+        <div class="mb-4 row g-3 justify-content-center">
+          <div class="col-md-4 col-sm-6">
+            <div class="text-center card">
+              <h5>Attendance Rate</h5>
+              <h2 id="attendanceRate"></h2>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <div class="text-center card">
+              <h5>Absences</h5>
+              <h2 id="absences"></h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="table-section">
+        <h2>Attendance History</h2>
+        <table class="table align-middle table-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="attendanceHistory">
+            <tr>
+              <td></td>
+              <td></td>
+              <td><span class="badge bg-success">Present</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 AttendEase | Created for School Project</p>
+    </footer>
+
+    <script src="js/student.js"></script>
+  </body>
+</html>
