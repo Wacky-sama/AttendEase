@@ -40,6 +40,23 @@ sudo ./xampp-linux-x64-*.run
 sudo /opt/lampp/lampp start
 ```
 
+If you encounter an error like this:
+```bash
+Starting XAMPP for Linux 8.2.12-0...
+XAMPP: Starting Apache...fail.
+XAMPP:  Another web server is already running.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...ok.
+```
+Just type this command:
+```bash
+# Stop the running service
+sudo systemctl stop apache2
+
+# Then re-run the command
+sudo /opt/lampp/lampp start
+```
+
 Clone this repository inside **/opt/lampp/htdocs**
 
 ```bash
